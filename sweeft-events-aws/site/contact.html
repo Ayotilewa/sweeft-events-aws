@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Sweeft Events</title>
+  <meta name="description" content="Tell Sweeft Events about your event. Share a date and a dream — we’ll come back with ideas, a plan and a quote." />
+  <link rel="preload" href="fonts/bricolage-grotesque-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/manrope-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/cormorant-garamond-latin-500-italic.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/parisienne-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="stylesheet" href="css/fonts.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/inner.css" />
+  <link rel="stylesheet" href="css/birthday.css" />
+  <script src="js/birthday.js"></script>
+</head>
+<body data-page="contact">
+  <div id="nav-root"></div>
+
+  <main>
+    <section class="page-hero short">
+      <div class="page-hero-bg" data-parallax="-0.15"><img src="assets/hero-contact.jpg" alt="" /></div>
+      <p class="script reveal">Let’s make it sweet</p>
+      <h1 class="display split" data-split style="--d:.15s">Tell us about <em class="serif-i">your event</em></h1>
+      <p class="sub reveal" style="--d:.5s">Share a date and a dream. We’ll come back with ideas, a plan and a quote.</p>
+      <span class="scroll-cue" aria-hidden="true"></span>
+    </section>
+
+    <section class="form-info">
+      <div class="wrap form-row">
+        <form class="enquiry-lg reveal" data-enquiry novalidate>
+          <h2>Event enquiry</h2>
+          <div class="pair">
+            <div class="field"><label for="c-name">Full name</label><input class="input" id="c-name" name="name" placeholder="Your name" required autocomplete="name" /></div>
+            <div class="field"><label for="c-phone">Phone / WhatsApp</label><input class="input" id="c-phone" name="phone" placeholder="+234" required type="tel" autocomplete="tel" /></div>
+          </div>
+          <div class="pair">
+            <div class="field"><label for="c-email">Email</label><input class="input" id="c-email" name="email" placeholder="you@email.com" type="email" autocomplete="email" /></div>
+            <div class="field"><label for="c-type">Event type</label>
+              <select class="input" id="c-type" name="type"><option>Wedding</option><option>Social event</option><option>Corporate event</option><option>Decor &amp; styling</option><option>Other</option></select>
+            </div>
+          </div>
+          <div class="pair">
+            <div class="field"><label for="c-date">Event date</label><input class="input" id="c-date" name="date" type="date" /></div>
+            <div class="field"><label for="c-guests">Guest count</label><input class="input" id="c-guests" name="guests" placeholder="e.g. 150" inputmode="numeric" /></div>
+          </div>
+          <div class="pair">
+            <div class="field"><label for="c-budget">Budget range</label>
+              <select class="input" id="c-budget" name="budget">
+                <option value="">Select a range</option>
+                <option>Under ₦2m</option><option>₦2m – ₦5m</option><option>₦5m – ₦10m</option><option>₦10m – ₦20m</option><option>₦20m+</option><option>Not sure yet</option>
+              </select>
+            </div>
+            <div class="field"><label for="c-venue">Venue (if booked)</label><input class="input" id="c-venue" name="venue" placeholder="Venue name" /></div>
+          </div>
+          <div class="field"><label for="c-dream">Tell us the dream</label><textarea class="input" id="c-dream" name="dream" placeholder="Theme, colours, must-haves, anything you’re dreaming of…"></textarea></div>
+          <div class="field">
+            <span class="label">How did you hear about us?</span>
+            <div class="chips">
+              <button type="button" class="is-active">Instagram</button><button type="button">TikTok</button><button type="button">A friend</button><button type="button">A past event</button><button type="button">Other</button>
+            </div>
+            <input type="hidden" name="heard" value="Instagram" />
+          </div>
+          <button class="btn btn-dark btn-block" type="submit">Send my enquiry</button>
+          <p class="thanks serif-i">Ẹ ṣé · Daalụ · Na gode — we can’t wait to celebrate with you.</p>
+        </form>
+
+        <aside class="side">
+          <a class="side-card reveal-r" style="background:var(--card-a);--d:.05s" href="https://www.instagram.com/sweeftevents_/" target="_blank" rel="noopener"><span class="side-ico"><img src="assets/c-ig.svg" alt="" /></span><span><small>INSTAGRAM</small><b>@sweeftevents_</b></span></a>
+          <a class="side-card reveal-r" style="background:var(--card-e);--d:.12s" href="https://wa.me/2349050725099" target="_blank" rel="noopener"><span class="side-ico"><img src="assets/c-phone.svg" alt="" /></span><span><small>CALL / WHATSAPP</small><b>+234 905 072 5099</b></span></a>
+          <a class="side-card reveal-r" style="background:var(--card-b);--d:.19s" href="mailto:sweeftevents@gmail.com"><span class="side-ico"><img src="assets/c-mail.svg" alt="" /></span><span><small>EMAIL</small><b>sweeftevents@gmail.com</b></span></a>
+          <a class="side-card reveal-r" style="background:var(--card-d);--d:.26s" href="https://maps.google.com/?q=Lekki+Phase+1+Lagos" target="_blank" rel="noopener"><span class="side-ico"><img src="assets/c-pin.svg" alt="" /></span><span><small>STUDIO</small><b>Lekki Phase 1, Lagos</b></span></a>
+          <div class="side-card reveal-r" style="background:var(--card-c);--d:.33s"><span class="side-ico"><img src="assets/c-clock.svg" alt="" /></span><span><small>RESPONSE TIME</small><b>Within 24 hours</b></span></div>
+          <div class="sweet-note reveal-r" style="--d:.4s"><p class="script">Every detail, made sweet.</p><p>We read every enquiry personally and reply with ideas — not a template.</p></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="block next">
+      <div class="sec-head">
+        <p class="script reveal">After you hit send</p>
+        <h2 class="display sec-title split" data-split>What happens next</h2>
+      </div>
+      <div class="wrap next-grid">
+        <span class="next-line rv" aria-hidden="true"></span>
+        <article class="ncard reveal"><span class="nnum" style="background:var(--card-b)">1</span><h3>We say hello</h3><p>We reply to your enquiry and set up a quick chat.</p></article>
+        <article class="ncard reveal" style="--d:.15s"><span class="nnum" style="background:var(--card-e)">2</span><h3>We dream together</h3><p>A consultation to understand your vision, guests and budget.</p></article>
+        <article class="ncard reveal" style="--d:.3s"><span class="nnum" style="background:var(--card-a)">3</span><h3>You get a plan</h3><p>A tailored proposal with ideas, timeline and quote.</p></article>
+      </div>
+    </section>
+
+    <section class="block faq">
+      <div class="sec-head">
+        <p class="script reveal">Good to know</p>
+        <h2 class="display sec-title split" data-split>Questions, answered</h2>
+      </div>
+      <div class="faq-list" data-faq>
+        <div class="faq-item is-open reveal">
+          <button class="faq-q" aria-expanded="true">How far in advance should I book?<span class="ic"><img class="plus" src="assets/faq-plus.svg" alt="" /><img class="minus" src="assets/faq-minus.svg" alt="" /></span></button>
+          <div class="faq-a"><p>As early as you can. Weddings and large milestone celebrations need more planning time, while smaller social events can come together faster. Send us your date and we’ll tell you honestly what’s possible.</p></div>
+        </div>
+        <div class="faq-item reveal" style="--d:.06s">
+          <button class="faq-q" aria-expanded="false">Do you plan events outside Lagos?<span class="ic"><img class="plus" src="assets/faq-plus.svg" alt="" /><img class="minus" src="assets/faq-minus.svg" alt="" /></span></button>
+          <div class="faq-a"><p>We’re based in Lekki, Lagos, and we love a road trip. Tell us where your event is and we’ll talk through travel, logistics and what it takes to bring the Sweeft team to you.</p></div>
+        </div>
+        <div class="faq-item reveal" style="--d:.12s">
+          <button class="faq-q" aria-expanded="false">Can you handle just decor, or only full planning?<span class="ic"><img class="plus" src="assets/faq-plus.svg" alt="" /><img class="minus" src="assets/faq-minus.svg" alt="" /></span></button>
+          <div class="faq-a"><p>Both. Some clients want us end to end; others just need décor and styling, or day-of coordination. We’ll shape the package around what you actually need.</p></div>
+        </div>
+        <div class="faq-item reveal" style="--d:.18s">
+          <button class="faq-q" aria-expanded="false">How do payments work?<span class="ic"><img class="plus" src="assets/faq-plus.svg" alt="" /><img class="minus" src="assets/faq-minus.svg" alt="" /></span></button>
+          <div class="faq-a"><p>Your proposal comes with a clear quote and payment schedule — typically a deposit to secure your date, with the balance due before the event. Everything is agreed in writing up front, with no surprises.</p></div>
+        </div>
+        <div class="faq-item reveal" style="--d:.24s">
+          <button class="faq-q" aria-expanded="false">Can I see a past event similar to mine?<span class="ic"><img class="plus" src="assets/faq-plus.svg" alt="" /><img class="minus" src="assets/faq-minus.svg" alt="" /></span></button>
+          <div class="faq-a"><p>Of course. Browse our <a href="gallery.html" style="text-decoration:underline">gallery</a> and <a href="https://www.instagram.com/sweeftevents_/" target="_blank" rel="noopener" style="text-decoration:underline">Instagram</a>, or ask during your consultation and we’ll share examples closest to what you’re planning.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap map-wrap">
+      <a class="map reveal-scale" href="https://maps.google.com/?q=Lekki+Phase+1+Lagos" target="_blank" rel="noopener" aria-label="Open Lekki Phase 1, Lagos in Google Maps">
+        <span class="map-pin"><span class="map-dot"><img src="assets/map-pin.svg" alt="" /></span><span>Lekki Phase 1, Lagos</span></span>
+        <span class="map-open">Open in Google Maps ↗</span>
+      </a>
+    </section>
+  </main>
+
+  <div id="footer-root"></div>
+  <script src="js/lenis.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
