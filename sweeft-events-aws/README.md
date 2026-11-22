@@ -54,11 +54,7 @@ flowchart LR
 |---|---|
 | **Amazon S3** | Stores the website files (origin). Private, encrypted at rest (SSE-S3). |
 | **Amazon CloudFront** | Global CDN: caching, low latency, HTTPS, default root object. |
-| **CloudFront Origin Access Control (OAC)** | Lets CloudFront sign requests to the private bucket. |
-| **HTTPS / TLS** | Default `*.cloudfront.net` certificate. HTTP is redirected to HTTPS. |
 | **AWS Budgets** | Zero-spend budget alert to avoid unexpected costs. |
-
-No EC2 instances, no custom domain.
 
 ---
 
@@ -102,20 +98,6 @@ No EC2 instances, no custom domain.
 }
 ```
 
----
-
-## 5. Security considerations
-
-- **Private bucket:** Block Public Access stays on and there are no public ACLs or public policy statements.
-- **Least privilege:** only `s3:GetObject` is granted, only to CloudFront, and only for this one distribution (`AWS:SourceArn` condition). This prevents the "confused deputy" problem, where another CloudFront distribution could otherwise read the bucket.
-- **OAC instead of legacy OAI:** OAC uses SigV4 signing, supports SSE-KMS and all regions, and is AWS's current recommendation.
-- **Encryption in transit:** HTTPS is enforced by the HTTP→HTTPS redirect.
-- **Encryption at rest:** SSE-S3 is the bucket default.
-- **No secrets in the repo:** no access keys or credentials. `.gitignore` excludes credential files, and the account ID is redacted in screenshots and docs. The only "contact" values in `js/config.js` are the business's public email and WhatsApp number.
-- **No servers:** there is nothing to patch, which reduces the attack surface.
-
----
-
 ## 6. Testing and validation
 
 | # | Test | Method | Result | Evidence |
@@ -128,45 +110,17 @@ No EC2 instances, no custom domain.
 | 6 | CloudFront retrieves from the private origin | `curl -I https://dXXXX.cloudfront.net/index.html` → `200`, `x-cache` header | ✅ | `06-cloudfront-200.png` |
 | 7 | Responsive on mobile | DevTools device mode / phone | ✅ | `07-mobile.png` |
 | 8 | Updates propagate | Edited the page, re-uploaded, created invalidation `/*` → change visible | ✅ | `08-update-before.png`, `09-invalidation.png`, `10-update-after.png` |
-
-### Configuration evidence
-- `11-s3-block-public-access.png`
-- `12-s3-object-ownership.png`
-- `13-s3-bucket-policy.png`
-- `14-cloudfront-origin-oac.png`
-- `15-oac-details.png`
-- `16-cloudfront-behavior-https.png`
-- `17-default-root-object.png`
-
----
-
-## 7. Implementation decisions
-
-- **Static site + S3 + CloudFront instead of EC2:** there are no servers to run or patch, it scales automatically and it costs almost nothing.
-- **REST endpoint instead of the S3 website endpoint:** OAC only works with the REST endpoint, and the website endpoint would need a public bucket.
-- **Multi-page site:** the content is grouped into separate pages (Services, Experience/About, Gallery, Contact) to match the client's Figma design, linked by a shared fixed navigation bar.
-- **Self-hosted fonts, images and videos:** every asset is served through CloudFront, so pages load consistently and there are no third-party font requests.
-- **Serverless contact form:** enquiries are sent through FormSubmit, with a WhatsApp fallback, so no backend is needed.
-
 ---
 
 ## 8. Challenges encountered and resolutions
 
-> Fill this in with what actually happened during deployment.
 
-| Challenge | Cause | Resolution |
-|---|---|---|
-| _e.g. Old version still showing after re-upload_ | _CloudFront edge cache_ | _Created an invalidation for `/*`_ |
-| | | |
 
 ---
 
 ## 9. Lessons learned
 
-> Your own reflections, e.g. how OAC and bucket policies work together, why caching needs invalidation, how a CDN improves latency for users in different regions.
-
 ---
-
 ## 10. Cost and clean-up
 
 - Monitored usage with an AWS Budgets zero-spend alert. The project stays within the free tier.
