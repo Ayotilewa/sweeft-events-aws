@@ -1,7 +1,6 @@
 # Sweeft Events: Secure Static Website on Amazon S3 + CloudFront
 
 **Cloud Computing Practical Project 01**
-**Student:** Ayotilewa Motunrayo Fasusi, Department of Computer Science, University of Lagos
 
 | | |
 |---|---|
