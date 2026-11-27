@@ -15,10 +15,35 @@
   background: linear-gradient(to bottom, rgba(18,12,10,.7), rgba(18,12,10,.5) 55%, rgba(18,12,10,.8));
 }
 @keyframes kenburns { from { transform: scale(1.04); } to { transform: scale(1.14) translate(-1.5%, -1%); } }
-.page-hero .script { color: var(--sand); font-size: 34px; }
-.page-hero h1 { font-size: clamp(46px, 6.1vw, 88px); line-height: .98; letter-spacing: -.035em; max-width: 1000px; text-align: center; color: var(--cream); }
-.page-hero h1 em { font-style: italic; color: var(--sand); }
-.page-hero p.sub { max-width: 620px; font-size: 18px; line-height: 1.65; color: #ede3d8; text-align: center; }
+.page-hero .script {
+  color: var(--sand);
+  font-size: var(--hero-tag-size);
+}
+
+.page-hero h1 {
+  font-size: var(--hero-title-size);
+  font-weight: var(--hero-title-weight);
+  line-height: var(--hero-title-line-height);
+  letter-spacing: -.025em;
+  max-width: 800px;
+  text-align: center;
+  color: var(--cream);
+}
+
+.page-hero h1 em {
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--sand);
+}
+
+.page-hero p.sub {
+  max-width: 540px;
+  font-size: var(--hero-sub-size);
+  line-height: 1.65;
+  color: #ede3d8;
+  text-align: center;
+}
 .scroll-cue {
   position: absolute; left: 50%; bottom: 36px; translate: -50% 0; width: 26px; height: 42px; border-radius: 20px; border: 1.5px solid rgba(251,246,239,.5);
 }
@@ -92,13 +117,11 @@
 }
 @media (max-width: 760px) {
   .page-hero { min-height: 520px; padding: 150px 20px 100px; }
-  .page-hero p.sub { font-size: 16px; }
   .quick { padding: 36px 16px; }
   .quick .chip-row { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; scrollbar-width: none; padding-bottom: 2px; }
   .quick .chip-row::-webkit-scrollbar { display: none; }
   .quick.is-stuck { padding-top: 84px; }
   .svc-rows { gap: 80px; }
-  .svc-text h2 { font-size: 42px; }
   .svc-collage { width: 100%; height: auto; aspect-ratio: 616 / 520; }
   .svc-main { width: 90.9%; height: 88.5%; border-radius: 24px; }
   .polaroid { width: 38%; padding: 7px 7px 10px; }
@@ -185,9 +208,7 @@
   .founder .ph { width: 92.6%; height: 96.8%; border-radius: 28px; }
   .founder-tag { left: auto; right: 0; top: auto; bottom: 0; font-size: 22px; }
   .process-grid { grid-template-columns: 1fr; }
-  .pcard h3 { font-size: 38px; }
   .vcard { width: 100%; padding: 32px 26px; }
-  .vcard h3 { font-size: 60px; }
   .bpol .ph { width: 220px; height: 240px; }
   .signature { font-size: 24px; }
 }

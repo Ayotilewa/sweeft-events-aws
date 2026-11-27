@@ -27,6 +27,7 @@
 
   /* ---------- Shared nav + footer ---------- */
   const links = [
+    ["home", "Home", "index.html"],
     ["services", "Services", "services.html"],
     ["experience", "Experience", "experience.html"],
     ["gallery", "Gallery", "gallery.html"],
@@ -50,7 +51,6 @@
       </div>
     </header>
     <div class="mobile-menu" aria-hidden="true">
-      <a href="index.html">Home</a>
       ${links.map(([, t, h]) => `<a href="${h}">${t}</a>`).join("")}
       <a href="contact.html" class="btn btn-sand mm-cta">Plan my event</a>
     </div>`;
@@ -126,53 +126,53 @@
   /* ---------- Split headings into words + reveal on scroll ----------
      Waits for the web fonts so words are measured once and never jump. */
   function startAnimations() {
-  $$("[data-split]").forEach((el) => {
-    let i = 0;
-    const walk = (node) => {
-      Array.from(node.childNodes).forEach((n) => {
-        if (n.nodeType === 3) {
-          const frag = document.createDocumentFragment();
-          n.textContent.split(/(\s+)/).forEach((part) => {
-            if (!part) return;
-            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(" ")); return; }
+    $$("[data-split]").forEach((el) => {
+      let i = 0;
+      const walk = (node) => {
+        Array.from(node.childNodes).forEach((n) => {
+          if (n.nodeType === 3) {
+            const frag = document.createDocumentFragment();
+            n.textContent.split(/(\s+)/).forEach((part) => {
+              if (!part) return;
+              if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(" ")); return; }
+              const w = document.createElement("span");
+              w.className = "w";
+              const inner = document.createElement("span");
+              inner.style.setProperty("--i", i++);
+              inner.textContent = part;
+              w.appendChild(inner);
+              frag.appendChild(w);
+            });
+            n.replaceWith(frag);
+          } else if (n.nodeType === 1) {
+            // wrap whole inline element (e.g. <em>) as one word
             const w = document.createElement("span");
             w.className = "w";
-            const inner = document.createElement("span");
-            inner.style.setProperty("--i", i++);
-            inner.textContent = part;
-            w.appendChild(inner);
-            frag.appendChild(w);
-          });
-          n.replaceWith(frag);
-        } else if (n.nodeType === 1) {
-          // wrap whole inline element (e.g. <em>) as one word
-          const w = document.createElement("span");
-          w.className = "w";
-          n.style.setProperty("--i", i++);
-          n.style.display = "inline-block";
-          n.replaceWith(w);
-          w.appendChild(n);
-          n.classList.add("w-inner");
-        }
-      });
-    };
-    walk(el);
-    el.classList.add("split");
-  });
+            n.style.setProperty("--i", i++);
+            n.style.display = "inline-block";
+            n.replaceWith(w);
+            w.appendChild(n);
+            n.classList.add("w-inner");
+          }
+        });
+      };
+      walk(el);
+      el.classList.add("split");
+    });
 
-  /* ---------- Reveal on scroll ---------- */
-  const revealEls = $$(".reveal, .reveal-l, .reveal-r, .reveal-scale, .rv, [data-split]");
-  if ("IntersectionObserver" in window && !reduced) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.15, rootMargin: "0px 0px -6% 0px" });
-    revealEls.forEach((el) => io.observe(el));
-  } else {
-    revealEls.forEach((el) => el.classList.add("in"));
-  }
-  document.documentElement.classList.add("anim-ready");
+    /* ---------- Reveal on scroll ---------- */
+    const revealEls = $$(".reveal, .reveal-l, .reveal-r, .reveal-scale, .rv, [data-split]");
+    if ("IntersectionObserver" in window && !reduced) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.15, rootMargin: "0px 0px -6% 0px" });
+      revealEls.forEach((el) => io.observe(el));
+    } else {
+      revealEls.forEach((el) => el.classList.add("in"));
+    }
+    document.documentElement.classList.add("anim-ready");
   }
   const fontsReady = document.fonts && document.fonts.ready ? Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 1500))]) : Promise.resolve();
   fontsReady.then(() => requestAnimationFrame(startAnimations));
@@ -248,7 +248,7 @@
       vid.addEventListener("loadedmetadata", () => stage.classList.toggle("is-land", vid.videoWidth > vid.videoHeight), { once: true });
       vid.src = v.file;
       stage.appendChild(vid);
-      vid.play().catch(() => {});
+      vid.play().catch(() => { });
     } else showInstagram();
   };
   $(".lb-close", vp).addEventListener("click", closeVideo);
@@ -283,7 +283,7 @@
     if ("IntersectionObserver" in window) {
       new IntersectionObserver(async ([e]) => {
         if (e.isIntersecting) {
-          if (await tryLoad()) { video.play().catch(() => {}); reel.classList.add("is-playing"); }
+          if (await tryLoad()) { video.play().catch(() => { }); reel.classList.add("is-playing"); }
         } else if (hasVideo && !fan.classList.contains("is-cinema")) { video.pause(); }
       }, { threshold: 0.4 }).observe(reel);
     }
@@ -295,12 +295,12 @@
       if (!(await tryLoad())) { window.sweeftPlayVideo(reel.dataset.video || "mk-decor", $("img", reel).src); return; }
       fan.classList.add("is-cinema"); reel.classList.add("is-playing");
       video.muted = false; video.loop = false; video.controls = true; video.currentTime = 0;
-      video.play().catch(() => { video.muted = true; video.play().catch(() => {}); });
+      video.play().catch(() => { video.muted = true; video.play().catch(() => { }); });
     };
     const closeCinema = () => {
       fan.classList.remove("is-cinema");
       video.controls = false; video.muted = true; video.loop = true;
-      video.play().catch(() => {});
+      video.play().catch(() => { });
     };
     play.addEventListener("click", openCinema);
     closeBtn.addEventListener("click", (e) => { e.stopPropagation(); closeCinema(); });
