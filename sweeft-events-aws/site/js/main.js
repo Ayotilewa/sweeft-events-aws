@@ -27,10 +27,10 @@
 
   /* ---------- Shared nav + footer ---------- */
   const links = [
-    ["home", "Home", "index.html"],
-    ["services", "Services", "services.html"],
-    ["experience", "Experience", "experience.html"],
-    ["gallery", "Gallery", "gallery.html"],
+    ["home", "Home", "/"],
+    ["services", "Services", "/services"],
+    ["experience", "Experience", "/experience"],
+    ["gallery", "Gallery", "/gallery"],
   ];
 
   const navRoot = $("#nav-root");
