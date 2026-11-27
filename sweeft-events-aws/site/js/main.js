@@ -39,12 +39,12 @@
     <header class="nav-shell" data-nav>
       <div class="wrap">
         <nav class="nav" aria-label="Main">
-          <a href="index.html" class="nav-logo" aria-label="Sweeft Events — home"><img class="logo" src="assets/logo.png" alt="Sweeft Events" /></a>
+          <a href="/" class="nav-logo" aria-label="Sweeft Events — home"><img class="logo" src="assets/logo.png" alt="Sweeft Events" /></a>
           <div class="nav-links">
             ${links.map(([k, t, h]) => `<a href="${h}" class="${k === page ? "is-active" : ""}">${t}</a>`).join("")}
           </div>
           <div class="nav-right">
-            <a href="contact.html" class="btn btn-sand${page === "contact" ? " is-current" : ""}">Plan my event</a>
+            <a href="/contact" class="btn btn-sand${page === "contact" ? " is-current" : ""}">Plan my event</a>
             <button class="nav-burger" aria-label="Open menu" aria-expanded="false" data-burger><span></span></button>
           </div>
         </nav>
@@ -52,7 +52,7 @@
     </header>
     <div class="mobile-menu" aria-hidden="true">
       ${links.map(([, t, h]) => `<a href="${h}">${t}</a>`).join("")}
-      <a href="contact.html" class="btn btn-sand mm-cta">Plan my event</a>
+      <a href="/contact" class="btn btn-sand mm-cta">Plan my event</a>
     </div>`;
   }
 
@@ -66,10 +66,10 @@
             <p class="script reveal">Every detail, made sweet.</p>
             <p class="display split" data-split>Ready to celebrate?</p>
           </div>
-          <a href="contact.html" class="btn btn-sand reveal" style="--d:.2s">Plan my event</a>
+          <a href="/contact" class="btn btn-sand reveal" style="--d:.2s">Plan my event</a>
         </div>
         <div class="footer-bottom">
-          <a href="index.html" aria-label="Sweeft Events — home"><img class="logo" src="assets/logo.png" alt="Sweeft Events" /></a>
+          <a href="/index" aria-label="Sweeft Events — home"><img class="logo" src="assets/logo.png" alt="Sweeft Events" /></a>
           <div class="socials">
             <a href="https://www.instagram.com/sweeftevents_/" target="_blank" rel="noopener" aria-label="Instagram"><img src="assets/f-ig.svg" alt="" width="20" height="20" /></a>
             <a href="https://www.tiktok.com/@sweeftevents_" target="_blank" rel="noopener" aria-label="TikTok"><img src="assets/f-tt.svg" alt="" width="20" height="20" /></a>
